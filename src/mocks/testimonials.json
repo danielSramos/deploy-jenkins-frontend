@@ -1,0 +1,52 @@
+[
+    {
+        "id": 1,
+        "rating": 4,
+        "testimonial": "Fazer mentoria com o Thormes foi uma experiência transformadora. Ele me ajudou a entender o mercado, aprimorar minhas habilidades e traçar metas claras para minha carreira. Hoje, sinto-me muito mais confiante para seguir nessa nova jornada.",
+        "person": {
+            "name": "Kauan Ribeiro Feijó",
+            "role": "Desenvolvedor Web na Google",
+            "photo": "https://placehold.co/400"
+        }
+    },
+    {
+        "id": 2,
+        "rating": 4,
+        "testimonial": "A mentoria me ajudou a encontrar meu primeiro emprego na área de tecnologia. O Thormes compartilhou dicas valiosas sobre entrevistas e como destacar meu portfólio.",
+        "person": {
+            "name": "Larissa Almeida",
+            "role": "UI/UX Designer na Meta",
+            "photo": "https://placehold.co/400"
+        }
+    },
+    {
+        "id": 3,
+        "rating": 3,
+        "testimonial": "Com a orientação do Thormes, consegui estruturar minha startup e lançar meu primeiro produto digital. A experiência foi essencial para meu crescimento profissional.",
+        "person": {
+            "name": "Carlos Henrique",
+            "role": "CEO da TechStart",
+            "photo": "https://placehold.co/400"
+        }
+    },
+    {
+        "id": 4,
+        "rating": 2,
+        "testimonial": "Aprendi a organizar meu tempo e melhorar minha produtividade no trabalho. As sessões de mentoria foram extremamente práticas e aplicáveis ao meu dia a dia.",
+        "person": {
+            "name": "Fernanda Souza",
+            "role": "Desenvolvedora Fullstack na Amazon",
+            "photo": "https://placehold.co/400"
+        }
+    },
+    {
+        "id": 5,
+        "rating": 1,
+        "testimonial": "A mentoria foi um divisor de águas para minha carreira. Consegui um cargo de liderança graças às estratégias e insights passados pelo Thormes.",
+        "person": {
+            "name": "Rafael Torres",
+            "role": "Tech Lead na Microsoft",
+            "photo": "https://placehold.co/400"
+        }
+    }
+]

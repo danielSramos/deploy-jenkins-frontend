@@ -1,0 +1,61 @@
+[
+    {
+        "id": 1,
+        "name": "Programador 1",
+        "role": "Desenvolvedor Backend Sênior",
+        "rating": 5,
+        "skills": [
+            "tecnologia",
+            "ux/ui design"
+        ],
+        "photo": "https://placehold.co/400"
+    },
+    {
+        "id": 2,
+        "name": "Programador 2",
+        "role": "Desenvolvedor Frontend Pleno",
+        "rating": 4,
+        "skills": [
+            "React",
+            "CSS avançado",
+            "JavaScript"
+        ],
+        "photo": "https://placehold.co/400"
+    },
+    {
+        "id": 3,
+        "name": "Programador 3",
+        "role": "Engenheiro de Software",
+        "rating": 5,
+        "skills": [
+            "Arquitetura de software",
+            "Banco de Dados",
+            "DevOps"
+        ],
+        "photo": "https://placehold.co/400"
+    },
+    {
+        "id": 4,
+        "name": "Programador 4",
+        "role": "Desenvolvedor Mobile Júnior",
+        "rating": 3,
+        "skills": [
+            "Flutter",
+            "UI responsiva",
+            "Firebase"
+        ],
+        "photo": "https://placehold.co/400"
+    },
+    {
+        "id": 5,
+        "name": "Programador 5",
+        "role": "Analista de Dados",
+        "rating": 4,
+        "skills": [
+            "Python",
+            "Machine Learning",
+            "SQL"
+        ],
+        "photo": "https://placehold.co/400"
+    }
+]
