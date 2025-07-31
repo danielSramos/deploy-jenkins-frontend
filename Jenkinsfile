@@ -27,9 +27,7 @@ pipeline {
         stage('Push Docker Image') {
             steps {
                 script {
-                    // Usa a credencial do Docker Hub para fazer login e push das imagens
-                    withCredentials([usernamePassword(credentialsId: env.DOCKER_CREDENTIALS_ID, passwordVariable: 'DOCKER_PASSWORD', usernameVariable: 'DOCKER_USERNAME')]) {
-                        sh "echo $DOCKER_PASSWORD | docker login -u $DOCKER_USERNAME --password-stdin"
+                    withDockerRegistry(credentialsId: env.DOCKER_CREDENTIALS_ID) {
                         sh "docker push ${DOCKER_IMAGE_NAME}:${env.BUILD_NUMBER}"
                         sh "docker push ${DOCKER_IMAGE_NAME}:latest"
                     }
