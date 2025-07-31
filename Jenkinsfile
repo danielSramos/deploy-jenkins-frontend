@@ -10,14 +10,9 @@ pipeline {
     }
 
     stages {
-        // O checkout inicial já é feito automaticamente pelo Jenkins
-        // Não é necessário um estágio 'Checkout' separado.
-
         stage('Build Docker Image') {
             steps {
                 script {
-                    // Adiciona o nome do repositório antes da imagem para o push funcionar
-                    // A tag 'latest' pode ser criada no Dockerfile ou após a criação da imagem
                     sh "docker build -t ${DOCKER_IMAGE_NAME}:${env.BUILD_NUMBER} ."
                     sh "docker tag ${DOCKER_IMAGE_NAME}:${env.BUILD_NUMBER} ${DOCKER_IMAGE_NAME}:latest"
                 }
@@ -38,8 +33,12 @@ pipeline {
         stage('Deploy to Kubernetes (Rancher)') {
             steps {
                 script {
-                    // Usa a credencial do Rancher para se autenticar no Kubernetes
-                    withKubeConfig(credentialsId: env.KUBERNETES_CREDENTIALS_ID) {
+                    // Use withCredentials para injetar o arquivo kubeconfig na sessão
+                    withCredentials([file(credentialsId: env.KUBERNETES_CREDENTIALS_ID, variable: 'KUBECONFIG_FILE')]) {
+                        // Exporte a variável KUBECONFIG para o kubectl
+                        sh 'export KUBECONFIG=${KUBECONFIG_FILE}'
+                        
+                        // Use kubectl para fazer o deploy
                         sh "kubectl set image deployment/mentor-frontend-deployment mentor-frontend=${DOCKER_IMAGE_NAME}:${env.BUILD_NUMBER} -n ${KUBERNETES_NAMESPACE}"
                     }
                 }
