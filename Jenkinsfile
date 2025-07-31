@@ -3,7 +3,7 @@ pipeline {
 
     environment {
         // As variáveis de ambiente estão bem definidas
-        DOCKER_IMAGE_NAME = "daniel/frontend-pos" 
+        DOCKER_IMAGE_NAME = "danielsramos/frontend-pos" 
         DOCKER_CREDENTIALS_ID = "docker-hub-login"
         KUBERNETES_CREDENTIALS_ID = "rancher-credentials"
         KUBERNETES_NAMESPACE = "fleet-local"
