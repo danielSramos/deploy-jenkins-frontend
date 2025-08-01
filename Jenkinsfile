@@ -33,12 +33,20 @@ pipeline {
         stage('Deploy to Kubernetes (Rancher)') {
             steps {
                 script {
-                    // Use withCredentials para injetar o arquivo kubeconfig na sessão
                     withCredentials([file(credentialsId: env.KUBERNETES_CREDENTIALS_ID, variable: 'KUBECONFIG_FILE')]) {
-                        // Exporte a variável KUBECONFIG para o kubectl
+                        // Exibe o conteúdo do arquivo kubeconfig para debug
+                        sh 'echo "===== Conteúdo do KUBECONFIG ====="'
+                        sh 'cat ${KUBECONFIG_FILE}'
+                        sh 'echo "===== Server no kubeconfig ====="'
+                        sh 'grep "server:" ${KUBECONFIG_FILE}'
+
+                        // Exporta a variável para o kubectl
                         sh 'export KUBECONFIG=${KUBECONFIG_FILE}'
-                        
-                        // Use kubectl para fazer o deploy
+
+                        // Testa o acesso ao cluster (lista namespaces) para validar autenticação
+                        sh 'kubectl get namespaces'
+
+                        // Executa o deploy de fato
                         sh "kubectl set image deployment/mentor-frontend-deployment mentor-frontend=${DOCKER_IMAGE_NAME}:${env.BUILD_NUMBER} -n ${KUBERNETES_NAMESPACE}"
                     }
                 }
