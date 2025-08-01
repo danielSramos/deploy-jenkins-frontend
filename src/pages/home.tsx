@@ -77,7 +77,7 @@ function Hero() {
         </h3>
         <h1 className="text-4xl md:text-6xl font-extrabold">
           Mentoria{" "}
-          <span className="underline decoration-dashed decoration-blue-600">
+          <span className="underline decoration-dashed decoration-red-600 text-red-900">
             especializada
           </span>{" "}
           1 para 1
