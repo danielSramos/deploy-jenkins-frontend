@@ -6,7 +6,6 @@ pipeline {
         DOCKER_IMAGE_NAME = "danielsramos/frontend-pos" 
         DOCKER_CREDENTIALS_ID = "docker-hub-login"
         KUBERNETES_CREDENTIALS_ID = "rancher-credentials"
-        KUBERNETES_NAMESPACE = "fleet-local"
     }
 
     stages {
@@ -37,7 +36,7 @@ pipeline {
                         sh '''
                         export KUBECONFIG=${KUBECONFIG_FILE}
                         kubectl get namespaces
-                        kubectl set image deployment/mentor-frontend-deployment mentor-frontend=${DOCKER_IMAGE_NAME}:${BUILD_NUMBER} -n ${KUBERNETES_NAMESPACE}
+                        kubectl set image deployment/mentor-frontend-deployment mentor-frontend=danielsramos/frontend-pos:${BUILD_NUMBER} -n default
                         '''
                     }
                 }
